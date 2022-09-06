@@ -3,7 +3,9 @@ package com.mycom.word;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -92,6 +94,19 @@ public class WordCRUD implements ICRUD{
 		System.out.println("---------------------------------");
 		return idlist;
 	}
+	
+	public void listAll(int level) {
+		int j = 0;
+		System.out.println("---------------------------------");
+		for(int i=0; i<list.size(); i++) {
+			int ilevel = list.get(i).getLevel();
+			if(ilevel != level) continue;
+			System.out.print((j+1)+" ");
+			System.out.println(list.get(i).toString());
+			j++;
+		}
+		System.out.println("---------------------------------");
+	}
 
 	public void updateItem() {
 		System.out.print("=> 수정할 단어 검색 : ");
@@ -150,5 +165,27 @@ public class WordCRUD implements ICRUD{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public void saveFile() {
+		try {
+			PrintWriter pr = new PrintWriter(new FileWriter(fname));
+			for(Word one : list) {
+				pr.write(one.toFileString() + "\n");
+			}
+			pr.close();
+			System.out.println("==> 데이터 저장 완료 !!!");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void searchLevel() {
+		// TODO Auto-generated method stub
+		System.out.print("==> 원하는 레벨은? (1~3) ");
+		int level = s.nextInt();
+		listAll(level);
 	}
 }
