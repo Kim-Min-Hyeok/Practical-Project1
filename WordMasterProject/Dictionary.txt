@@ -26,3 +26,8 @@
 1|unfortunate|불운한
 1|branch|나뭇가지
 1|trim|다듬다
+3|crouch|쪼그리고 앉다
+2|proclaim|공언하다, 선포하다
+1|scatter|흩뿌리다, 살포하다
+1|proceed|진행하다[되다]
+1|reputation|평판, 명성
