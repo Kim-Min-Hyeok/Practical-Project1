@@ -31,4 +31,3 @@
 1|scatter|흩뿌리다, 살포하다
 1|proceed|진행하다[되다]
 1|reputation|평판, 명성
-1| apple|사과
